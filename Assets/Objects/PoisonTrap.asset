@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99c8918c0242aba48857db89c7b961fe, type: 3}
+  m_Name: PoisonTrap
+  m_EditorClassIdentifier: 
+  trapName: Poison Trap
+  damage: 10
+  cooldown: 5
+  range: 0
+  trapPrefab: {fileID: 1573109553228231782, guid: d9e062a45700b2540a273f6e1269191c, type: 3}

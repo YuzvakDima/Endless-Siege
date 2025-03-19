@@ -1,20 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ResourceSystem : MonoBehaviour
 {
-    public int resources = 10;
+    public float resources;
 
-    public int multiplier = 1;
+    [SerializeField] private LevelManager levelManager;
+
+    [SerializeField] private TMP_Text resourcesText;
 
     private void Start()
     {
-        resources = 10;
+        resourcesText = GetComponent<TMP_Text>();
+
+        if (levelManager.difficultyScale == 1)
+            resources = 100;
     }
 
     private void Update()
     {
+        resources = resources + levelManager.difficultyScale * Time.deltaTime;
     }
 
 }

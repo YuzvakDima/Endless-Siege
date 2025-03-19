@@ -25,14 +25,13 @@ public class UISystem : MonoBehaviour
     private void Start()
     {
         time = spawner.timeBetweenWaves;
+        StartCoroutine(Timer(time));
     }
 
     private void Update()
     {
-        resourcesText.text = "Ðåñóðñ³â: " + resourceSystem.resources.ToString();
+        resourcesText.text = "Ðåñóðñ³â: " + resourceSystem.resources.ToString("F1");
         livesText.text = "Æèòò³â: " + LevelManager.main.lives.ToString();
-        timeText.text = "×àñ: " + Mathf.Round(time);
-        time -= Time.deltaTime;
     }
     public void RestartLevel(bool restart)
     {
@@ -41,5 +40,17 @@ public class UISystem : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             gameOverMenu.gameObject.SetActive(false);
         }
+    }
+
+    public IEnumerator Timer(float time)
+    {
+        while (time > 0)
+        {
+            timeText.text = "×àñ: " + Mathf.Round(time);
+            yield return null; 
+            time -= Time.deltaTime;
+        }
+
+        timeText.text = "×àñ: " + 0;
     }
 }
