@@ -147,7 +147,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: -822558240410904653}
-  moveSpeed: 10
+  healthBar: {fileID: 0}
+  moveSpeed: 5
   health: 5
+  damage: 5
   spawner: {fileID: 0}
+  resourceSystem: {fileID: 0}
   pathIndex: 0

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1dc0a3688ef45ac4bb1dd0ce18a37f1a, type: 3}
-  m_Name: ArcherTower
+  m_Name: BombTower
   m_EditorClassIdentifier: 
-  trapName: ArcherTower
-  damage: 2
-  cooldown: 0.3
-  range: 5
-  trapPrefab: {fileID: 4522301566943944889, guid: 4395c93ce8123a14abe427aeb61a26f9, type: 3}
-  cost: 100
+  trapName: 
+  damage: 0
+  cooldown: 0
+  range: 0
+  trapPrefab: {fileID: 0}
+  cost: 0

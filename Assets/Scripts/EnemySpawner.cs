@@ -9,7 +9,6 @@ public class EnemySpawner : MonoBehaviour
 
     public int timeBetweenWaves = 10;
     private float timeSinceLastSpawn;
-    private int enemiesPerWave = 10;
     [SerializeField] private float enemyPerSecond = 0.5f;
     [SerializeField] private int enemiesLeftToSpawn;
     public int enemiesAlive;

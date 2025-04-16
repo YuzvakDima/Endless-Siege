@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
@@ -39,6 +38,7 @@ public class UISystem : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             gameOverMenu.gameObject.SetActive(false);
+            GlobalReferences.totalResources += resourceSystem.resources;
         }
     }
 
@@ -52,5 +52,10 @@ public class UISystem : MonoBehaviour
         }
 
         timeText.text = "×àñ: " + 0;
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

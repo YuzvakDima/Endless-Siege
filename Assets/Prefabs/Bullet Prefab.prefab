@@ -121,3 +121,4 @@ MonoBehaviour:
   speed: 100
   damage: 1
   bulletPrefab: {fileID: 7824243081162110394}
+  towerData: {fileID: 11400000, guid: 82364c69c0cceab44afa1e5824364a27, type: 2}

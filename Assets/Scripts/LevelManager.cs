@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour
     public static LevelManager main;
 
     [SerializeField] private EnemySpawner enemySpawner;
+    [SerializeField] private ResourceSystem resourceSystem;
 
     public UISystem ui;
 
@@ -21,9 +22,14 @@ public class LevelManager : MonoBehaviour
 
     public float difficultyScale = 1;
 
+
     private void Awake()
     {
         main = this;
+    }
+
+    private void Start()
+    {
     }
 
     private void Update()
@@ -32,6 +38,7 @@ public class LevelManager : MonoBehaviour
         {
             enemySpawner.gameObject.SetActive(false);
             ui.gameOverMenu.gameObject.SetActive(true);
+            resourceSystem.gameObject.SetActive(false);
         }
     }
 }

@@ -3,9 +3,21 @@ using UnityEngine;
 
 public class Trap : MonoBehaviour
 {
-    public TrapData trapData; 
+    public TrapData trapData;
 
-    [SerializeField] private float nextActivationTime = 0;
+    [SerializeField] private float nextActivationTime;
+
+    private void Start()
+    {
+        nextActivationTime = trapData.cooldown;
+    }
+
+    private void Update()
+    {
+        if (nextActivationTime <= 0)
+            return;
+        nextActivationTime -= Time.deltaTime;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,13 +29,6 @@ public class Trap : MonoBehaviour
 
             nextActivationTime += trapData.cooldown;
         }
-    }
-
-    private void Update()
-    {
-        if (nextActivationTime <= 0)
-            return;
-        nextActivationTime -= Time.deltaTime;
     }
 
     private void ActivateTrapEffect()

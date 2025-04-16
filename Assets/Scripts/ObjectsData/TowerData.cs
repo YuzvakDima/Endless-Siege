@@ -7,5 +7,6 @@ public class TowerData : ScriptableObject
     public float damage;
     public float cooldown;
     public float range;
-    public GameObject trapPrefab;
+    public GameObject towerPrefab;
+    public int cost;
 }

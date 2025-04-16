@@ -7,10 +7,15 @@ public class Bullet : MonoBehaviour
 {
     private Transform target;
     [SerializeField] private float speed = 100f;
-    [SerializeField] private int damage = 1;
+    [SerializeField] private float damage;
 
     public GameObject bulletPrefab;
+    public TowerData towerData;
 
+    private void Start()
+    {
+        damage =  towerData.damage;
+    }
     public void SetTarget(Transform enemy)
     {
         target = enemy;

@@ -6,20 +6,25 @@ public class Tower : MonoBehaviour
 {
     public TowerData towerData;
 
-    [SerializeField] private float fireRate = 0.5f;
-    [SerializeField] private float attackRange = 5f;
+    [SerializeField] private float fireRate;
+    [SerializeField] private float attackRange;
     [SerializeField] private GameObject bulletPrefab;
 
     private float nextShotTime = 0f; 
     private Transform targetEnemy;
 
+    private void Start()
+    {
+        fireRate = towerData.cooldown;
+        attackRange = towerData.range;
+    }
     private void Update()
     {
         FindTarget();
         if (targetEnemy != null && Time.time >= nextShotTime)
         {
             Shoot();
-            nextShotTime = Time.time + fireRate; 
+            nextShotTime = Time.time + fireRate;
         }
     }
 
