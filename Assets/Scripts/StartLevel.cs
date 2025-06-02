@@ -26,11 +26,11 @@ public class StartLevel : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
-            if (hit.collider.gameObject.name == "LevelOne")
+            if (hit.collider.gameObject.name == "Level1")
             {
                 SceneManager.LoadScene("Level1");
             }
-            if (hit.collider.gameObject.name == "LevelTwo")
+            if (hit.collider.gameObject.name == "Level1")
             {
                 SceneManager.LoadScene("Level2");
             }

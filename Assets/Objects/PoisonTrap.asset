@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trapName: Poison Trap
   damage: 10
-  cooldown: 5
+  cooldown: 2
   range: 0
   trapPrefab: {fileID: 1573109553228231782, guid: d9e062a45700b2540a273f6e1269191c, type: 3}
   cost: 50

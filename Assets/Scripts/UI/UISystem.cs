@@ -13,8 +13,9 @@ public class UISystem : MonoBehaviour
     public TMP_Text resourcesText;
     public TMP_Text livesText;
     public TMP_Text timeText;
+    public TMP_Text WinGame;
+    public RectTransform panel;
     private float time;
-    bool restart;
 
     private void Awake()
     {
@@ -32,14 +33,11 @@ public class UISystem : MonoBehaviour
         resourcesText.text = "Ресурсів: " + resourceSystem.resources.ToString("F1");
         livesText.text = "Життів: " + LevelManager.main.lives.ToString();
     }
-    public void RestartLevel(bool restart)
-    {
-        if (restart == true)
-        {
+    public void RestartLevel()
+    {    
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             gameOverMenu.gameObject.SetActive(false);
             GlobalReferences.totalResources += resourceSystem.resources;
-        }
     }
 
     public IEnumerator Timer(float time)
@@ -57,5 +55,15 @@ public class UISystem : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void GameMenu()
+    {
+        panel.gameObject.SetActive(true);
+    }
+
+    public void OffMenu()
+    {
+        panel.gameObject.SetActive(false);
     }
 }

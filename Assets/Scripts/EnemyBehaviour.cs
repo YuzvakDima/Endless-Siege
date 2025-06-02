@@ -10,7 +10,8 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private Rigidbody rb;
 
     [SerializeField]  private float moveSpeed = 2f;
-    public float health = 1f;
+    public float maxHealth = 100;
+    public float health;
     public float damage = 5f;
 
     [SerializeField] private EnemySpawner spawner;
@@ -19,20 +20,22 @@ public class EnemyBehaviour : MonoBehaviour
     private Transform target;
     public int pathIndex = 0;
 
-    private Barricade currentBarricade; 
+    private Barricade currentBarricade;
 
     private void Start()
     {
+        health = maxHealth;
         target = LevelManager.main.path[pathIndex];
         spawner = FindObjectOfType<EnemySpawner>();
         resourceSystem = FindObjectOfType<ResourceSystem>();
+        rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
         if (currentBarricade == null) 
         {
-            if (Vector3.Distance(target.position, transform.position) <= 0.5f)
+            if (Vector3.Distance(target.position, transform.position) <= 1f)
             {
                 if (pathIndex == (LevelManager.main.path.Length - 1))
                 {
@@ -52,14 +55,14 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (currentBarricade == null) 
+        if (currentBarricade == null)
         {
             Vector3 direction = (target.position - transform.position).normalized;
             rb.velocity = direction * moveSpeed;
         }
         else
         {
-            rb.velocity = Vector3.zero; 
+            rb.velocity = Vector3.zero;
         }
 
         CheckForBarricade();
@@ -73,15 +76,15 @@ public class EnemyBehaviour : MonoBehaviour
         {
             if (collider.TryGetComponent<Barricade>(out Barricade barricade))
             {
-                if (currentBarricade == null) 
+                if (currentBarricade == null)
                 {
                     currentBarricade = barricade;
                     StartCoroutine(AttackBarricade());
                 }
-                return; 
+                return;
             }
         }
-        currentBarricade = null; 
+        currentBarricade = null;
     }
 
     private IEnumerator AttackBarricade()
@@ -109,6 +112,7 @@ public class EnemyBehaviour : MonoBehaviour
         Destroy(gameObject); 
         spawner.enemiesAlive--;
         resourceSystem.resources += 10;
+        GlobalReferences.totalResources += 10;  
         GlobalReferences.totalKills++;
     }
 }

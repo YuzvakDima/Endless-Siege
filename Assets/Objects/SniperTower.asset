@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1dc0a3688ef45ac4bb1dd0ce18a37f1a, type: 3}
-  m_Name: BombTower
+  m_Name: SniperTower
   m_EditorClassIdentifier: 
-  trapName: 
-  damage: 0
-  cooldown: 0
-  range: 0
-  trapPrefab: {fileID: 0}
-  cost: 0
+  towerName: 
+  damage: 40
+  cooldown: 1
+  range: 20
+  towerPrefab: {fileID: 4566163309764815743, guid: 4399c171fda511246a8ac7f73cf7f5bc, type: 3}
+  cost: 50

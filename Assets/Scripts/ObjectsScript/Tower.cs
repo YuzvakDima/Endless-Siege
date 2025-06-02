@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Tower : MonoBehaviour
+public class Tower : MonoBehaviour, IPointerClickHandler
 {
     public TowerData towerData;
 
@@ -54,11 +55,17 @@ public class Tower : MonoBehaviour
     {
         if (targetEnemy == null) return;
 
-        GameObject bulletObj = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        
+        GameObject bulletObj = Instantiate(bulletPrefab, transform.position + new Vector3 (0,2), Quaternion.identity);
         Bullet bullet = bulletObj.GetComponent<Bullet>();
         if (bullet != null)
         {
             bullet.SetTarget(targetEnemy);
         }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        Destroy(gameObject);
     }
 }

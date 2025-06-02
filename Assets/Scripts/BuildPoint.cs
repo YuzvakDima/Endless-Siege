@@ -6,7 +6,7 @@ public class BuildPoint : MonoBehaviour
 {
     private GameObject currentStructure;
 
-    public enum pointType {trap, tower, barricade};
+    public enum pointType { trap, tower, barricade };
 
     public Collider pointCollider;
 
@@ -17,7 +17,7 @@ public class BuildPoint : MonoBehaviour
     }
     public bool CanBuild()
     {
-        return currentStructure == null; 
+        return currentStructure == null;
     }
 
     public void Build(GameObject structurePrefab, Vector3 spawnPosition, Quaternion spawnRotate)

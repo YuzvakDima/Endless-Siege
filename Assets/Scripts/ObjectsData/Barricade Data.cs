@@ -4,7 +4,7 @@ using UnityEngine;
 public class BarricadeData : ScriptableObject
 {
     public string barricadeName;
-    public GameObject trapPrefab;
+    public GameObject barricadePrefab;
     public int cost;
     public float health;
 }

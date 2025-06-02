@@ -15,6 +15,7 @@ public class EnemySpawner : MonoBehaviour
     private bool isSpawning = false;
     [SerializeField] private int baseEnemies = 4;
     private int wave = 1;
+    private int totalWaves = 2;
     private float difficulty = 0.75f;
 
     [SerializeField] private UISystem UISystem;
@@ -59,6 +60,14 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(StartWave());
         Debug.Log("Ended Wave");
         StartCoroutine(UISystem.Timer(timeBetweenWaves));
+        wave++;
+        if (wave > totalWaves)
+        {
+            UISystem.WinGame.text = "mario your princess is in another castle";
+            UISystem.WinGame.gameObject.SetActive(true);
+            Debug.Log("mario your princess is in another castle");
+            
+        }
     }
 
     private void SpawnEnemy()
